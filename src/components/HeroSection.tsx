@@ -21,7 +21,9 @@ const HeroSection = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6 animate-fade-up">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm font-medium text-primary">Plataforma Vivendo de Acessórios</span>
+            <span className="text-sm font-medium text-primary">
+              Plataforma Vivendo de Acessórios
+            </span>
           </div>
 
           {/* Headline */}
@@ -33,15 +35,32 @@ const HeroSection = () => {
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed animate-fade-up stagger-2">
-            Descubra pulseiras, colares e brincos que vão elevar seu look. Aprenda a alavancar suas vendas com os melhores fornecedores do mercado.
+            Descubra pulseiras, colares e brincos que vão elevar seu look.
+            Aprenda a alavancar suas vendas com os melhores fornecedores do
+            mercado.
           </p>
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-up stagger-3">
-            <Button variant="hero" size="xl">
+            <Button
+              onClick={() =>
+                (window.location.href =
+                  "https://pay.kiwify.com.br/CqH4vCT?afid=5dbZmjeW")
+              }
+              variant="hero"
+              size="xl"
+            >
               Quero Ter Acesso
             </Button>
-            <Button variant="dark" size="xl">
+            <Button
+              onClick={() => {
+                document.getElementById("benefits")?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+              variant="dark"
+              size="xl"
+            >
               Saiba Mais
             </Button>
           </div>
@@ -59,7 +78,9 @@ const HeroSection = () => {
             </div>
             <div className="w-px h-10 bg-border/30" />
             <div className="text-center">
-              <span className="block text-2xl font-bold text-accent">7 dias</span>
+              <span className="block text-2xl font-bold text-accent">
+                7 dias
+              </span>
               <span className="text-sm text-muted-foreground">Garantia</span>
             </div>
           </div>

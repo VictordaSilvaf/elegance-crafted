@@ -4,23 +4,26 @@ const benefits = [
   {
     icon: TrendingUp,
     title: "Aumente suas vendas",
-    description: "Descubra métodos testados e comprovados para impulsionar suas vendas e alcançar um crescimento acelerado do seu negócio.",
+    description:
+      "Descubra métodos testados e comprovados para impulsionar suas vendas e alcançar um crescimento acelerado do seu negócio.",
   },
   {
     icon: Star,
     title: "Acessórios de qualidade",
-    description: "Tenha acesso a fornecedores confiáveis e exclusivos que oferecem produtos de alta qualidade a preços acessíveis.",
+    description:
+      "Tenha acesso a fornecedores confiáveis e exclusivos que oferecem produtos de alta qualidade a preços acessíveis.",
   },
   {
     icon: Lightbulb,
     title: "Aprenda a combinar",
-    description: "Adquira conhecimentos práticos valiosos sobre estilo e tendência para ajudar seus clientes a montar looks perfeitos.",
+    description:
+      "Adquira conhecimentos práticos valiosos sobre estilo e tendência para ajudar seus clientes a montar looks perfeitos.",
   },
 ];
 
 const BenefitsSection = () => {
   return (
-    <section className="py-20 lg:py-28 bg-background">
+    <section className="py-20 lg:py-28 bg-background" id="benefits">
       <div className="container">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -28,7 +31,9 @@ const BenefitsSection = () => {
             Por que nos escolher
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Com a plataforma <span className="text-primary">Vivendo de Acessórios</span> você poderá:
+            Com a plataforma{" "}
+            <span className="text-primary">Vivendo de Acessórios</span> você
+            poderá:
           </h2>
         </div>
 

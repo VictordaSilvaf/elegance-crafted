@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import braceletImg from "@/assets/product-bracelet.jpg";
 import earringsImg from "@/assets/product-earrings.jpg";
 import necklaceImg from "@/assets/product-necklace.jpg";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
 
 const products = [
   {
@@ -28,10 +30,80 @@ const products = [
 ];
 
 const modules = [
-  { title: "Peças que vendem o ano todo", category: "Módulo 01" },
-  { title: "Atendimento de excelência", category: "Módulo 02" },
-  { title: "Como montar um espelho de feed", category: "Módulo 03" },
-  { title: "Stories que vendem", category: "Módulo 04" },
+  {
+    title: "Introdução e boas-vindas",
+    category: "Intro",
+    image: "https://luanamacedo.com.br/wp-content/uploads/2024/06/intro.png",
+  },
+  {
+    title: "Peças que vendem o ano todo",
+    category: "Módulo 01",
+    image: "https://luanamacedo.com.br/wp-content/uploads/2024/06/modulo-1.png",
+  },
+  {
+    title: "Atendimento de excelência",
+    category: "Módulo 02",
+    image: "https://luanamacedo.com.br/wp-content/uploads/2024/06/modulo-2.png",
+  },
+  {
+    title: "Como montar um espelho de feed",
+    category: "Módulo 03",
+    image: "https://luanamacedo.com.br/wp-content/uploads/2024/06/modulo-3.png",
+  },
+  {
+    title: "Stories que vendem",
+    category: "Módulo 04",
+    image: "https://luanamacedo.com.br/wp-content/uploads/2024/06/modulo-4.png",
+  },
+  {
+    title: "Copy e persuasão para vendas",
+    category: "Módulo 05",
+    image: "https://luanamacedo.com.br/wp-content/uploads/2024/06/modulo-5.png",
+  },
+  {
+    title: "Estratégias de engajamento",
+    category: "Módulo 06",
+    image: "https://luanamacedo.com.br/wp-content/uploads/2024/06/modulo-6.png",
+  },
+  {
+    title: "Planejamento de conteúdo",
+    category: "Módulo 07",
+    image: "https://luanamacedo.com.br/wp-content/uploads/2024/06/modulo-7.png",
+  },
+  {
+    title: "Fotografia para Instagram",
+    category: "Módulo 08",
+    image: "https://luanamacedo.com.br/wp-content/uploads/2024/06/modulo-8.png",
+  },
+  {
+    title: "Edição e identidade visual",
+    category: "Módulo 09",
+    image: "https://luanamacedo.com.br/wp-content/uploads/2024/06/modulo-9.png",
+  },
+  {
+    title: "Gestão de mídias sociais",
+    category: "Módulo 10",
+    image:
+      "https://luanamacedo.com.br/wp-content/uploads/2024/06/modulo-10.png",
+  },
+  {
+    title: "Automação de vendas",
+    category: "Módulo 11",
+    image:
+      "https://luanamacedo.com.br/wp-content/uploads/2024/06/modulo-11.png",
+  },
+  {
+    title: "Funis de marketing",
+    category: "Módulo 12",
+    image:
+      "https://luanamacedo.com.br/wp-content/uploads/2024/06/modulo-12.png",
+  },
+  {
+    title: "Análise de métricas",
+    category: "Módulo 13",
+    image:
+      "https://luanamacedo.com.br/wp-content/uploads/2024/06/modulo-13.png",
+  },
 ];
 
 const ProductsSection = () => {
@@ -48,47 +120,46 @@ const ProductsSection = () => {
           </h2>
         </div>
 
-        {/* Modules Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {/* Swiper Carousel */}
+        <Swiper
+          spaceBetween={10}
+          slidesPerView={4}
+          loop={true}
+          autoplay={{ delay: 500, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+        >
           {modules.map((module, index) => (
-            <div
-              key={module.title}
-              className="group relative overflow-hidden rounded-2xl bg-dark-lighter border border-border/20 aspect-[3/4] flex flex-col justify-end p-6 transition-all duration-300 hover:border-primary/50"
-            >
-              <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/60 to-transparent z-10" />
-              <div className="relative z-20">
-                <span className="text-xs text-primary font-semibold uppercase tracking-wider">
-                  {module.category}
-                </span>
-                <h3 className="text-lg font-bold text-secondary-foreground mt-2 group-hover:text-primary transition-colors duration-300">
-                  {module.title}
-                </h3>
+            <SwiperSlide key={module.title}>
+              <div className="group select-none relative overflow-hidden rounded-2xl bg-dark-lighter border border-border/20 aspect-[3/4] flex flex-col justify-end transition-all duration-300 hover:border-primary/50">
+                <img
+                  src={module.image}
+                  alt={module.title}
+                  className="w-full h-full object-cover rounded-lg"
+                />
               </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
 
         {/* Products Grid */}
-        <div className="text-center mb-12">
+        {/* <div className="text-center my-12">
           <h3 className="text-2xl md:text-3xl font-bold text-secondary-foreground mb-4">
             Destaques da <span className="text-primary">coleção</span>
           </h3>
-        </div>
+        </div> */}
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* <div className="grid md:grid-cols-3 gap-8">
           {products.map((product, index) => (
             <div
               key={product.id}
               className="group relative bg-card rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-card hover:-translate-y-2"
             >
-              {/* Tag */}
               <div className="absolute top-4 left-4 z-10">
                 <span className="px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-full">
                   {product.tag}
                 </span>
               </div>
 
-              {/* Image */}
               <div className="relative overflow-hidden aspect-square">
                 <img
                   src={product.image}
@@ -98,7 +169,6 @@ const ProductsSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
-              {/* Content */}
               <div className="p-6">
                 <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                   {product.name}
@@ -112,11 +182,18 @@ const ProductsSection = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <Button variant="hero" size="lg">
+          <Button
+            onClick={() =>
+              (window.location.href =
+                "https://pay.kiwify.com.br/CqH4vCT?afid=5dbZmjeW")
+            }
+            variant="hero"
+            size="lg"
+          >
             Quero Ter Acesso
           </Button>
         </div>

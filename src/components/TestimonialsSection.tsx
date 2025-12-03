@@ -1,37 +1,48 @@
-import { Play, Quote } from "lucide-react";
+import { Play, Quote, X } from "lucide-react";
+import { useState } from "react";
 
 const testimonials = [
   {
     id: 1,
     name: "Maria Silva",
     role: "Empreendedora",
-    quote: "A plataforma mudou completamente meu negócio. Consegui triplicar minhas vendas em apenas 3 meses!",
+    quote:
+      "A plataforma mudou completamente meu negócio. Consegui triplicar minhas vendas em apenas 3 meses!",
     hasVideo: true,
+    videoUrl: "https://www.youtube.com/embed/5Or5i1SkaZo",
   },
   {
     id: 2,
     name: "Ana Santos",
     role: "Lojista",
-    quote: "Os fornecedores indicados são incríveis. Produtos de qualidade com preços que me permitem ter boa margem.",
+    quote:
+      "Os fornecedores indicados são incríveis. Produtos de qualidade com preços que me permitem ter boa margem.",
     hasVideo: true,
-  },
-  {
-    id: 3,
-    name: "Carla Oliveira",
-    role: "Revendedora",
-    quote: "Aprendi técnicas de venda que nunca tinha visto. O conteúdo é prático e direto ao ponto.",
-    hasVideo: false,
+    videoUrl: "https://www.youtube.com/embed/lhcYYJg-OGU",
   },
   {
     id: 4,
     name: "Juliana Costa",
     role: "Influenciadora",
-    quote: "A mentoria me ensinou a criar conteúdo que realmente converte. Minhas seguidoras amam as indicações!",
+    quote:
+      "A mentoria me ensinou a criar conteúdo que realmente converte. Minhas seguidoras amam as indicações!",
     hasVideo: true,
+    videoUrl: "https://www.youtube.com/embed/Cll5cFxJTw0",
+  },
+  {
+    id: 5,
+    name: "Joice Rodrigues",
+    role: "Revendedora",
+    quote:
+      "Conteúdo claro e aplicável. Meu negócio está mais organizado e minhas vendas cresceram.",
+    hasVideo: true,
+    videoUrl: "https://www.youtube.com/embed/D48IZ9guwRg",
   },
 ];
 
 const TestimonialsSection = () => {
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+
   return (
     <section className="py-20 lg:py-28 bg-background">
       <div className="container">
@@ -56,9 +67,29 @@ const TestimonialsSection = () => {
               {/* Video Thumbnail Area */}
               {testimonial.hasVideo && (
                 <div className="relative aspect-video bg-muted overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/80 to-secondary/40 flex items-center justify-center">
-                    <button className="w-16 h-16 rounded-full bg-primary flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-glow">
-                      <Play className="w-6 h-6 text-primary-foreground ml-1" fill="currentColor" />
+                  {/* YouTube Thumbnail */}
+                  <img
+                    src={`https://img.youtube.com/vi/${testimonial.videoUrl
+                      .split("/")
+                      .pop()}/maxresdefault.jpg`}
+                    alt={`Depoimento de ${testimonial.name}`}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      // Fallback para thumbnail de qualidade média se maxres não existir
+                      e.currentTarget.src = `https://img.youtube.com/vi/${testimonial.videoUrl
+                        .split("/")
+                        .pop()}/hqdefault.jpg`;
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-black/20 flex items-center justify-center">
+                    <button
+                      onClick={() => setSelectedVideo(testimonial.videoUrl)}
+                      className="w-16 h-16 rounded-full bg-primary flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-glow"
+                    >
+                      <Play
+                        className="w-6 h-6 text-primary-foreground ml-1"
+                        fill="currentColor"
+                      />
                     </button>
                   </div>
                 </div>
@@ -89,6 +120,32 @@ const TestimonialsSection = () => {
             </div>
           ))}
         </div>
+
+        {/* Video Modal */}
+        {selectedVideo && (
+          <div
+            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+            onClick={() => setSelectedVideo(null)}
+          >
+            <div
+              className="relative w-full max-w-4xl aspect-video"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedVideo(null)}
+                className="absolute -top-12 right-0 w-10 h-10 rounded-full bg-primary/20 hover:bg-primary/30 flex items-center justify-center transition-colors"
+              >
+                <X className="w-6 h-6 text-white" />
+              </button>
+              <iframe
+                src={selectedVideo}
+                className="w-full h-full rounded-lg"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

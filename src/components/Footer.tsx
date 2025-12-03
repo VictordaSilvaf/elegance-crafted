@@ -11,19 +11,29 @@ const Footer = () => {
               Vivendo de <span className="text-primary">Acessórios</span>
             </h4>
             <p className="text-sm text-muted-foreground">
-              Transformando empreendedoras em referência no mercado de acessórios.
+              Transformando empreendedoras em referência no mercado de
+              acessórios.
             </p>
           </div>
 
           {/* Links */}
           <div className="flex flex-col items-center gap-2">
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <a
+              href="#"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
               Política de Privacidade
             </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <a
+              href="#"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
               Termos de Uso
             </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <a
+              href="#"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
               Contato
             </a>
           </div>
@@ -31,13 +41,13 @@ const Footer = () => {
           {/* Social */}
           <div className="flex justify-end gap-4">
             <a
-              href="#"
+              href="https://www.instagram.com/luanamacedooficiall?igsh=MWxla25mdTF5cmc5bw%3D%3D"
               className="w-10 h-10 rounded-full bg-dark-lighter border border-border/30 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
               aria-label="Instagram"
             >
               <Instagram className="w-5 h-5" />
             </a>
-            <a
+            {/* <a
               href="#"
               className="w-10 h-10 rounded-full bg-dark-lighter border border-border/30 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
               aria-label="Email"
@@ -50,14 +60,15 @@ const Footer = () => {
               aria-label="WhatsApp"
             >
               <Phone className="w-5 h-5" />
-            </a>
+            </a> */}
           </div>
         </div>
 
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-border/20 text-center">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Vivendo de Acessórios. Todos os direitos reservados.
+            © {new Date().getFullYear()} Vivendo de Acessórios. Todos os
+            direitos reservados.
           </p>
         </div>
       </div>

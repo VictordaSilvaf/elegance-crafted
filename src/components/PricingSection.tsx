@@ -20,10 +20,14 @@ const PricingSection = () => {
         {/* Pre-headline */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <p className="text-lg text-foreground leading-relaxed">
-            Não perca mais tempo e dinheiro com cursos que não trazem resultados para o seu negócio.
-            Aqui na plataforma <span className="text-primary font-semibold">Vivendo de Acessórios</span>, 
-            além de receber o direcionamento correto para impulsionar suas vendas, você terá acesso 
-            aos melhores fornecedores de acessórios do mercado.
+            Não perca mais tempo e dinheiro com cursos que não trazem resultados
+            para o seu negócio. Aqui na plataforma{" "}
+            <span className="text-primary font-semibold">
+              Vivendo de Acessórios
+            </span>
+            , além de receber o direcionamento correto para impulsionar suas
+            vendas, você terá acesso aos melhores fornecedores de acessórios do
+            mercado.
           </p>
         </div>
 
@@ -40,7 +44,8 @@ const PricingSection = () => {
 
             <div className="text-center pt-6">
               <h3 className="text-2xl md:text-3xl font-bold text-secondary-foreground mb-2">
-                A plataforma <span className="text-primary">VIVENDO DE ACESSÓRIOS</span>
+                A plataforma{" "}
+                <span className="text-primary">VIVENDO DE ACESSÓRIOS</span>
               </h3>
               <p className="text-muted-foreground mb-8">
                 é o caminho para levar seu negócio ao próximo nível.
@@ -49,16 +54,31 @@ const PricingSection = () => {
               {/* Price */}
               <div className="mb-8">
                 <div className="flex items-center justify-center gap-2 mb-2">
-                  <span className="text-4xl md:text-5xl font-bold text-secondary-foreground">12x</span>
-                  <span className="text-5xl md:text-6xl font-bold text-primary">R$29,82</span>
+                  <span className="text-4xl md:text-5xl font-bold text-secondary-foreground">
+                    12x
+                  </span>
+                  <span className="text-5xl md:text-6xl font-bold text-primary">
+                    R$29,82
+                  </span>
                 </div>
                 <p className="text-muted-foreground">
-                  ou à vista <span className="text-accent font-bold text-lg">R$297,00</span>
+                  ou à vista{" "}
+                  <span className="text-accent font-bold text-lg">
+                    R$297,00
+                  </span>
                 </p>
               </div>
 
               {/* CTA */}
-              <Button variant="hero" size="xl" className="w-full mb-8">
+              <Button
+                onClick={() =>
+                  (window.location.href =
+                    "https://pay.kiwify.com.br/CqH4vCT?afid=5dbZmjeW")
+                }
+                variant="hero"
+                size="xl"
+                className="w-full mb-8"
+              >
                 Quero Ter Acesso
               </Button>
 
@@ -66,9 +86,15 @@ const PricingSection = () => {
               <div className="flex items-center justify-center gap-4 mb-8 pb-8 border-b border-border/30">
                 <CreditCard className="w-10 h-10 text-muted-foreground" />
                 <div className="flex gap-2">
-                  <div className="px-3 py-1 bg-muted rounded text-xs font-semibold text-muted-foreground">VISA</div>
-                  <div className="px-3 py-1 bg-muted rounded text-xs font-semibold text-muted-foreground">MASTERCARD</div>
-                  <div className="px-3 py-1 bg-muted rounded text-xs font-semibold text-muted-foreground">PIX</div>
+                  <div className="px-3 py-1 bg-muted rounded text-xs font-semibold text-muted-foreground">
+                    VISA
+                  </div>
+                  <div className="px-3 py-1 bg-muted rounded text-xs font-semibold text-muted-foreground">
+                    MASTERCARD
+                  </div>
+                  <div className="px-3 py-1 bg-muted rounded text-xs font-semibold text-muted-foreground">
+                    PIX
+                  </div>
                 </div>
               </div>
 
