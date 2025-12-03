@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  acessorios:
+    image: virtusilva/acessorios:latest   # ← já troquei pro seu usuário correto
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.acessorios-http.rule=Host(`acessorios.ofertinhas.site`)"
+        - "traefik.http.routers.acessorios-http.entrypoints=web"
+        - "traefik.http.routers.acessorios-http.middlewares=redirect-https"
+        - "traefik.http.middlewares.redirect-https.redirectscheme.scheme=https"
+
+        - "traefik.http.routers.acessorios-https.rule=Host(`acessorios.ofertinhas.site`)"
+        - "traefik.http.routers.acessorios-https.entrypoints=websecure"
+        - "traefik.http.routers.acessorios-https.tls=true"
+        - "traefik.http.routers.acessorios-https.tls.certresolver=letsencryptresolver"
+
+        - "traefik.http.services.acessorios.loadbalancer.server.port=80"
+    networks:
+      - ofertinhas   # ← rede que já existe
+
+networks:
+  ofertinhas:
+    external: true
